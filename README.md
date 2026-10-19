@@ -1,4 +1,5 @@
 # Automata-Assignment
 CODE OUTPUT
 
-<img width="492" height="90" alt="Screenshot 2026-10-18 103017" src="https://github.com/user-attachments/assets/b9ab3c81-9fa7-406f-9966-211f7a856d78" />
+<img width="361" height="87" alt="image" src="https://github.com/user-attachments/assets/a14b9fcf-1de6-4a62-917e-697dafa44e65" />
+
