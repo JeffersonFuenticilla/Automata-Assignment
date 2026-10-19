@@ -1,5 +1,6 @@
 # Automata-Assignment
 CODE OUTPUT
 
-<img width="361" height="87" alt="image" src="https://github.com/user-attachments/assets/a14b9fcf-1de6-4a62-917e-697dafa44e65" />
+<img width="345" height="91" alt="image" src="https://github.com/user-attachments/assets/447f395f-96ae-4140-b9a8-691288a7425c" />
+
 
