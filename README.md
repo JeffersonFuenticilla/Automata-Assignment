@@ -7,6 +7,5 @@ CODE OUTPUT
 
 WRITTEN OUTPUT
 
-<img width="2048" height="1193" alt="image" src="https://github.com/user-attachments/assets/d620fe9a-fc92-4f31-8bc0-fb7a763a42f8" />
+<img width="1534" height="2048" alt="image" src="https://github.com/user-attachments/assets/98e1f3f6-0030-4961-8b84-70bbf7ba5292" />
 
-<img width="2048" height="1711" alt="image" src="https://github.com/user-attachments/assets/bd0a45ad-21bd-4d29-8926-2a9050cbeb93" />
