@@ -1,49 +1,45 @@
-class MealyMachine1sComplement:
+class ParityDetectorMealy:
     def __init__(self):
-        # Initial state is 'A'
-        self.current_state = 'A'
+        # Initial state is 'E' (Even number of 1s seen so far, count = 0)
+        self.state = 'E'
 
     def process_bit(self, bit: str) -> str:
-        """
-        Processes a single input bit ('0' or '1') and returns the output bit.
-        In a 1's complement Mealy machine:
-        - Input '0' outputs '1'
-        - Input '1' outputs '0'
-        State remains 'A'.
-        """
-        if bit == '0':
-            return '1'
-        elif bit == '1':
-            return '0'
-        else:
-            raise ValueError(f"Invalid input bit: {bit}. Must be '0' or '1'.")
+        if bit not in ('0', '1'):
+            raise ValueError(f"Invalid bit: {bit}")
 
-    def process_string(self, input_string: str) -> tuple[str, list[str]]:
-        """
-        Processes a binary string and returns:
-        1. The output string (1's complement)
-        2. The state trace (sequence of states)
-        """
+        if self.state == 'E':
+            if bit == '1':
+                self.state = 'O'
+                return '1'  # Odd count reached -> output 1
+            else:
+                return '0'  # Still even -> output 0
+
+        elif self.state == 'O':
+            if bit == '1':
+                self.state = 'E'
+                return '0'  # Back to even count -> output 0
+            else:
+                return '1'  # Still odd -> output 1
+
+    def run(self, input_string: str):
         output_bits = []
-        state_trace = [self.current_state]
+        state_history = [self.state]
 
         for bit in input_string:
-            out_bit = self.process_bit(bit)
-            output_bits.append(out_bit)
-            # Machine stays in state 'A' for all inputs
-            state_trace.append(self.current_state)
+            out = self.process_bit(bit)
+            output_bits.append(out)
+            state_history.append(self.state)
 
-        return "".join(output_bits), state_trace
+        return "".join(output_bits), state_history
 
 
-# --- Demonstration matching the handwritten notes ---
+# --- Demonstration ---
 if __name__ == "__main__":
-    input_str = "1010"
-    
-    mealy = MealyMachine1sComplement()
-    output_str, states = mealy.process_string(input_str)
+    input_str = "10110"
+    machine = ParityDetectorMealy()
+    output_str, history = machine.run(input_str)
 
-    print("=== FINITE AUTOMATA WITH OUTPUTS: MEALY MACHINE ===")
-    print(f"Input String  : {input_str}")
-    print(f"Output String : {output_str}")
-    print(f"State Trace   : {' -> '.join(states)}")
+    print("=== ODD PARITY MEALY MACHINE ===")
+    print(f"Input : {input_str}")
+    print(f"Output: {output_str}")
+    print(f"States: {' -> '.join(history)}")
