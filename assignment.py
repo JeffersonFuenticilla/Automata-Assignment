@@ -1,6 +1,6 @@
 class ParityDetectorMealy:
     def __init__(self):
-        # Initial state is 'E' (Even number of 1s seen so far, count = 0)
+        # Initial state is 'E' (Even number of 1s seen so far)
         self.state = 'E'
 
     def process_bit(self, bit: str) -> str:
@@ -10,27 +10,27 @@ class ParityDetectorMealy:
         if self.state == 'E':
             if bit == '1':
                 self.state = 'O'
-                return '1'  # Odd count reached -> output 1
+                return 'B'  # Odd count reached -> output B
             else:
-                return '0'  # Still even -> output 0
+                return 'A'  # Still even -> output A
 
         elif self.state == 'O':
             if bit == '1':
                 self.state = 'E'
-                return '0'  # Back to even count -> output 0
+                return 'A'  # Back to even count -> output A
             else:
-                return '1'  # Still odd -> output 1
+                return 'B'  # Still odd -> output B
 
     def run(self, input_string: str):
-        output_bits = []
+        output_symbols = []
         state_history = [self.state]
 
         for bit in input_string:
             out = self.process_bit(bit)
-            output_bits.append(out)
+            output_symbols.append(out)
             state_history.append(self.state)
 
-        return "".join(output_bits), state_history
+        return "".join(output_symbols), state_history
 
 
 # --- Demonstration ---
@@ -41,5 +41,5 @@ if __name__ == "__main__":
 
     print("=== ODD PARITY MEALY MACHINE ===")
     print(f"Input : {input_str}")
-    print(f"Output: {output_str}")
+    print(f"Output: {output_str}")  # Result: BABBB
     print(f"States: {' -> '.join(history)}")
