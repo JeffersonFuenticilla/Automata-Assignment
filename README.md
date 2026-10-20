@@ -1,5 +1,5 @@
 # Automata-Assignment
-Reads a binary sequence and outputs $B$ whenever the total number of 1s seen so far is odd, and $A$ when it is even.
+<font size="+2"><b>Reads a binary sequence and outputs B whenever the total number of 1s seen so far is odd, and A when it is even.</b></font>
 
 CODE OUTPUT
 
